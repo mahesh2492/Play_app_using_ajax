@@ -23,3 +23,9 @@ POST    /showProfile                    controllers.Login.processForm
 GET     /profile                    controllers.Login.showProfile(username:String)
 
 POST    /                       controllers.HomeController.index
+
+GET   /javascriptRoutes            controllers.JavascriptRoute.javascriptRoutes
+
+GET   /signin                      controllers.AjaxController.ajaxCall
+
+GET   /signup                        controllers.AjaxController.ajaxCall1
