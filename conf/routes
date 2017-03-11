@@ -3,7 +3,7 @@
 # ~~~~
 
 # An example controller showing a sample home page
-GET     /                           controllers.FrontController.front
+GET     /                           controllers.HomeController.index
 # An example controller showing how to use dependency injection
 GET     /count                      controllers.CountController.count
 # An example controller showing how to write asynchronous code
@@ -12,22 +12,14 @@ GET     /message                    controllers.AsyncController.message
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
 
-GET     /signup                    controllers.SignupController.default
+GET     /login.scala.html                            controllers.Login.showForm
 
-POST    /signup                    controllers.SignupController.store
+GET     /signup.scala.html                            controllers.Signup.showForm
 
-GET     /signin                    controllers.SigninController.default
+POST     /addPeople                      controllers.Signup.addPerson
 
-POST    /signin                    controllers.SigninController.check
+POST    /showProfile                    controllers.Login.processForm
 
-GET     /profile                   controllers.ProfileController.default
+GET     /profile                    controllers.Login.showProfile(username:String)
 
-GET   /javascriptRoutes            controllers.JavascriptRoute.javascriptRoutes
-
-GET   /signin                      controllers.FrontController.signin
-
-GET   /signup                      controllers.FrontController.signup
-
-GET    /details                     controllers.DetailController.detail
-
-
+POST    /                       controllers.HomeController.index

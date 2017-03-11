@@ -1,4 +1,4 @@
-name := """Play"""
+name := """LoginApplicationUsingPlay"""
 
 version := "1.0-SNAPSHOT"
 
