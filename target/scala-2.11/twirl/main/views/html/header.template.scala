@@ -28,8 +28,8 @@ Seq[Any](format.raw/*1.1*/("""<nav class="navbar navbar-default">
         </div>
         <ul class="nav navbar-nav">
             <li class="active"><a id="front">Home</a></li>
-            <li><a href ="sign" id="a">Sign Up</a></li>
-            <li><a href ="login" id ="b">Sign In</a></li>
+            <li><a  id="a">Sign Up</a></li>
+            <li><a id ="b">Sign In</a></li>
         </ul>
     </div>
 </nav>
@@ -53,9 +53,9 @@ Seq[Any](format.raw/*1.1*/("""<nav class="navbar navbar-default">
 object header extends header_Scope0.header
               /*
                   -- GENERATED --
-                  DATE: Sat Mar 11 10:23:43 IST 2017
+                  DATE: Sat Mar 11 11:06:08 IST 2017
                   SOURCE: /home/knoldus/Desktop/fuck/app/views/header.scala.html
-                  HASH: 64e020d387d1bfda8d765c4f3201c1394c30a1e9
+                  HASH: 459ba611cc2520578ad45e6150446d29d9ef7e85
                   MATRIX: 611->0
                   LINES: 25->1
                   -- GENERATED --

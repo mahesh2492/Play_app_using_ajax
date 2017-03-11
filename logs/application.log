@@ -479,3 +479,6 @@ play.sbt.PlayExceptions$CompilationException: Compilation error[value front is n
 2017-03-11 10:55:00,701 [INFO] from application in application-akka.actor.default-dispatcher-9 - ApplicationTimer demo: Stopping application at 2017-03-11T05:25:00.701Z after 3099s.
 2017-03-11 10:55:00,839 [INFO] from application in application-akka.actor.default-dispatcher-9 - ApplicationTimer demo: Starting application at 2017-03-11T05:25:00.838Z.
 2017-03-11 10:55:01,010 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-9 - Application started (Dev)
+2017-03-11 11:06:10,316 [INFO] from application in application-akka.actor.default-dispatcher-16 - ApplicationTimer demo: Stopping application at 2017-03-11T05:36:10.316Z after 670s.
+2017-03-11 11:06:10,451 [INFO] from application in application-akka.actor.default-dispatcher-16 - ApplicationTimer demo: Starting application at 2017-03-11T05:36:10.450Z.
+2017-03-11 11:06:10,608 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-16 - Application started (Dev)
