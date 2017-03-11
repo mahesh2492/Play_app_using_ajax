@@ -12,18 +12,17 @@
 * argument is an `Html` object containing the body of the page.
 *@
 @main() {
-<div class="jumbotron text-center" style="background-color: #f4511e; color: #fff;">
-    <h1>Welcome</h1>
-    <p>Login/Signup Application</p>
-    <form class="form-inline">
-
-            <div class="input-group-btn">
-                <a href="signup.scala.html" class="btn btn-danger" role="button">Sign Up</a>-->
-                <a href="login.scala.html" class="btn btn-info" role="button">Sign In</a>-->
-            </div>
-    </form>
-</div>
-
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href ="sign" id="a">Sign Up</a></li>
+            <li><a href ="login" id ="b">Sign In</a></li>
+        </ul>
+    </div>
+</nav>
 
 @*
 * Get an `Html` object by calling the built-in Play welcome
