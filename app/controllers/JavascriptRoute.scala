@@ -10,8 +10,8 @@ class JavascriptRoute extends Controller {
 
     Ok(
       JavaScriptReverseRouter("jsRoutes")(
-        //routes.javascript.AjaxController.front,
-        routes.javascript.AjaxController.signin,
+        routes.javascript.AjaxController.front,
+        routes.javascript.AjaxController.login,
         routes.javascript.AjaxController.signup
 
       )

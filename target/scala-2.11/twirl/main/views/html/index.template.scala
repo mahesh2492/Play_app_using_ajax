@@ -30,22 +30,11 @@ Seq[Any](format.raw/*6.4*/("""
 
 """),format.raw/*13.3*/("""
 """),_display_(/*14.2*/main()/*14.8*/ {_display_(Seq[Any](format.raw/*14.10*/("""
-"""),format.raw/*15.1*/("""<nav class="navbar navbar-default">
-    <div class="container-fluid">
-        <div class="navbar-header">
-        </div>
-        <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href ="sign" id="a">Sign Up</a></li>
-            <li><a href ="login" id ="b">Sign In</a></li>
-        </ul>
-    </div>
-</nav>
 
-"""),format.raw/*30.3*/("""
+"""),format.raw/*19.3*/("""
 
 
-""")))}),format.raw/*33.2*/("""
+""")))}),format.raw/*22.2*/("""
 """))
       }
     }
@@ -69,11 +58,11 @@ Seq[Any](format.raw/*6.4*/("""
 object index extends index_Scope0.index
               /*
                   -- GENERATED --
-                  DATE: Sat Mar 11 10:03:19 IST 2017
+                  DATE: Sat Mar 11 10:23:43 IST 2017
                   SOURCE: /home/knoldus/Desktop/fuck/app/views/index.scala.html
-                  HASH: 99ff63d6a3ce43e74eb5d237ac0aaffcbc063e19
-                  MATRIX: 606->93|702->95|732->288|760->290|774->296|814->298|842->299|1230->768|1264->772
-                  LINES: 23->6|28->6|31->13|32->14|32->14|32->14|33->15|45->30|48->33
+                  HASH: 719fb5751fee05697aee7673b3fd626f0ab8fae5
+                  MATRIX: 606->93|702->95|732->288|760->290|774->296|814->298|843->408|877->412
+                  LINES: 23->6|28->6|31->13|32->14|32->14|32->14|34->19|37->22
                   -- GENERATED --
               */
           
