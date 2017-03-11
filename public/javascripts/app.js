@@ -1,29 +1,79 @@
-$(document).ready(function() {
+ $(document).ready(function(){
+
+ $('#a').on("click",function(){
+
+          jsRoutes.controllers.Signup.showForm().ajax({
+                       success: function(data){
+                         $('body').html(data);
+                       },
+                       error: function(){
+                       $('#body').html("hello");
+                       alert("fail")
+                     }
+
+           })
 
 
-    $('#a').click(function(e) {
-      ajaxCall();
-    });
-    $('#b').click(function(e) {
-      ajaxCall1();
-   });
-});
 
-var ajaxCall = function() {
-    var ajaxCallBack = {
-        success : function(data) {$('#placeholder').html(data);},
-        error : function(error) {alert(error);}
-    }
+       });
 
-    jsRoutes.controllers.AjaxController.ajaxCall().ajax(ajaxCallBack);
-};
+       $('#b').on("click",function(){
+                 jsRoutes.controllers.Login.showForm().ajax({
+                             success: function(data){
+                               $('body').html(data);
+                             },
+                             error: function(){
+                             $('#body').html("hello");
+                             alert("fail")
+                           }
 
-var ajaxCall1 = function() {
-    var ajaxCallBack1 = {
-        success : function(data) {$('#placeholder').html(data);},
-        error : function(error) {alert(error);}
-    }
+                 })
 
-    jsRoutes.controllers.AjaxController.ajaxCall1().ajax(ajaxCallBack1);
-};
 
+             });
+
+
+ $('#submit').unbind().on("click",function(){
+               jsRoutes.controllers.Signup.addPerson(
+                                $('#fname').val(),
+                                $('#mname').val(),
+                                $('#lname').val(),
+                                $('#uname').val(),
+                                $('#pass').val(),
+                                $('#repass').val(),
+                                $('#mobile').val(),
+                                $('input[name = gender]:checked','#signup').val(),
+                                $('#age').val(),
+                                 $('input[name = hobbies]:checked','#signup').val()
+                ).ajax({
+                            success: function(data){
+                              $('body').html(data);
+                            },
+                            error: function(){
+                            alert("Oops! Something went wrong");
+                          }
+
+                })
+
+                     return false;
+            });
+
+
+ $('#submit2').unbind().on("click",function(){
+               jsRoutes.controllers.Login.processForm(
+                                $('#uname').val(),
+                                $('#pass').val()
+                ).ajax({
+                            success: function(data){
+                              $('body').html(data);
+                            },
+                            error: function(){
+                            alert("Oops! Something went wrong");
+                          }
+
+                })
+
+                     return false;
+            });
+
+ });

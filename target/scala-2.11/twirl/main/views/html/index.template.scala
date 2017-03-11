@@ -14,35 +14,46 @@ import play.api.templates.PlayMagic._
 import play.api.mvc._
 import play.api.data._
 
-class index extends BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with play.twirl.api.Template0[play.twirl.api.HtmlFormat.Appendable] {
+class index extends BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with play.twirl.api.Template1[RequestHeader,play.twirl.api.HtmlFormat.Appendable] {
 
-  /*
-* This template takes a single argument, a String containing a
-* message to display.
-*/
-  def apply/*6.2*/():play.twirl.api.HtmlFormat.Appendable = {
+  /**/
+  def apply/*1.2*/()(implicit request: RequestHeader):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
 
 
-Seq[Any](format.raw/*6.4*/("""
+Seq[Any](format.raw/*1.37*/("""
+"""),format.raw/*5.3*/("""
+"""),_display_(/*6.2*/()),format.raw/*6.4*/("""
 
 
 """),format.raw/*13.3*/("""
 """),_display_(/*14.2*/main()/*14.8*/ {_display_(Seq[Any](format.raw/*14.10*/("""
+"""),format.raw/*15.1*/("""<div class="jumbotron text-center" style="background-color: #f4511e; color: #fff;">
+    <h1>Welcome</h1>
+    <p>Login/Signup Application</p>
+    <form class="form-inline">
 
-"""),format.raw/*19.3*/("""
+            <div class="input-group-btn">
+                <a id ="a" class="btn btn-danger" role="button">Sign Up</a>-->
+                <a id ="b" class="btn btn-info" role="button">Sign In</a>-->
+            </div>
+    </form>
+</div>
 
 
-""")))}),format.raw/*22.2*/("""
+"""),format.raw/*31.3*/("""
+
+
+""")))}/*34.2*/(request)),format.raw/*34.11*/("""
 """))
       }
     }
   }
 
-  def render(): play.twirl.api.HtmlFormat.Appendable = apply()
+  def render(request:RequestHeader): play.twirl.api.HtmlFormat.Appendable = apply()(request)
 
-  def f:(() => play.twirl.api.HtmlFormat.Appendable) = () => apply()
+  def f:(() => (RequestHeader) => play.twirl.api.HtmlFormat.Appendable) = () => (request) => apply()(request)
 
   def ref: this.type = this
 
@@ -51,18 +62,15 @@ Seq[Any](format.raw/*6.4*/("""
 
 }
 
-/*
-* This template takes a single argument, a String containing a
-* message to display.
-*/
+/**/
 object index extends index_Scope0.index
               /*
                   -- GENERATED --
-                  DATE: Sat Mar 11 10:23:43 IST 2017
+                  DATE: Sat Mar 11 17:23:23 IST 2017
                   SOURCE: /home/knoldus/Desktop/fuck/app/views/index.scala.html
-                  HASH: 719fb5751fee05697aee7673b3fd626f0ab8fae5
-                  MATRIX: 606->93|702->95|732->288|760->290|774->296|814->298|843->408|877->412
-                  LINES: 23->6|28->6|31->13|32->14|32->14|32->14|34->19|37->22
+                  HASH: 1d5bcd512396b59c1ba1f810c6a65a37531e2485
+                  MATRIX: 534->1|664->36|691->127|718->129|739->131|769->324|797->326|811->332|851->334|879->335|1317->854|1339->858|1369->867
+                  LINES: 20->1|25->1|26->5|27->6|27->6|30->13|31->14|31->14|31->14|32->15|45->31|48->34|48->34
                   -- GENERATED --
               */
           

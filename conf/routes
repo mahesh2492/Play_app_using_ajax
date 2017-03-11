@@ -16,16 +16,11 @@ GET     /login.scala.html                            controllers.Login.showForm
 
 GET     /signup.scala.html                            controllers.Signup.showForm
 
-POST     /addPeople                      controllers.Signup.addPerson
+POST     /addPeople                      controllers.Signup.addPerson(fname,mname,lname,uname,pass,repass,mobile,gender,age,hobbies)
 
-POST    /showProfile                    controllers.Login.processForm
+POST    /showProfile                    controllers.Login.processForm(uname,pass)
 
 GET     /profile                    controllers.Login.showProfile(username:String)
 
 POST    /                       controllers.HomeController.index
 
-GET   /javascriptRoutes            controllers.JavascriptRoute.javascriptRoutes
-
-GET   /signin                      controllers.AjaxController.ajaxCall
-
-GET   /signup                        controllers.AjaxController.ajaxCall1

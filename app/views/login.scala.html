@@ -1,9 +1,9 @@
-
+@()(implicit flash: Flash, request: RequestHeader)
 
 @main() {
 
 
-<form action="@routes.Login.processForm()" method="post" style="border: 3px solid #f1f1f1; width: 100%">
+<form  style="border: 3px solid #f1f1f1; width: 100%">
     <div class="imgcontainer" style =" text-align: center;
     margin: 24px 0 12px 0;">
         <img src="@routes.Assets.versioned("images/img_avatar2.png")" alt="Avatar" style =" width: 20%;
@@ -13,8 +13,8 @@
         <h2>Sign in to continue</h2>
         <form>
             <div class="form-group">
-                <label for="usr">Username:</label>
-                <input type="name" class="form-control" name ="username" id="usr" placeholder="Enter username" required style="width: 100%;
+                @flash.get("msg").getOrElse("")
+                <input type="name" class="form-control" name ="username" id="uname" placeholder="Enter username" required style="width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
@@ -22,8 +22,8 @@
     box-sizing: border-box;">
             </div>
             <div class="form-group">
-                <label for="pwd">Password:</label>
-                <input type="password" class="form-control" name ="password" id="pwd" placeholder="Enter password" required style=" width: 100%;
+
+                <input type="password" class="form-control" name ="password" id="pass" placeholder="Enter password" required style=" width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
@@ -33,7 +33,7 @@
             <div class="checkbox">
                 <label><input type="checkbox"> Remember me</label>
             </div>
-            <button type="submit" class="btn btn-success" style="  background-color: #4CAF50;
+            <button id="submit2" class="btn btn-success" style="  background-color: #4CAF50;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
@@ -44,4 +44,4 @@
     </div>
 
 </form>
-}
+}(request)

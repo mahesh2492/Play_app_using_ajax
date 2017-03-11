@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/knoldus/Desktop/fuck/conf/routes
-// @DATE:Sat Mar 11 10:21:29 IST 2017
+// @DATE:Sat Mar 11 18:00:05 IST 2017
 
 import play.api.routing.JavaScriptReverseRoute
 import play.api.mvc.{ QueryStringBindable, PathBindable, Call, JavascriptLiteral }
@@ -28,36 +28,6 @@ package controllers.javascript {
       """
         function(file1) {
           return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "assets/" + (""" + implicitly[PathBindable[Asset]].javascriptUnbind + """)("file", file1)})
-        }
-      """
-    )
-  
-  }
-
-  // @LINE:29
-  class ReverseAjaxController(_prefix: => String) {
-
-    def _defaultPrefix: String = {
-      if (_prefix.endsWith("/")) "" else "/"
-    }
-
-  
-    // @LINE:31
-    def ajaxCall1: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.AjaxController.ajaxCall1",
-      """
-        function() {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "signup"})
-        }
-      """
-    )
-  
-    // @LINE:29
-    def ajaxCall: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.AjaxController.ajaxCall",
-      """
-        function() {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "signin"})
         }
       """
     )
@@ -102,22 +72,22 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:21
-    def processForm: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.Login.processForm",
-      """
-        function() {
-          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "showProfile"})
-        }
-      """
-    )
-  
     // @LINE:23
     def showProfile: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Login.showProfile",
       """
         function(username0) {
           return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "profile" + _qS([(""" + implicitly[QueryStringBindable[String]].javascriptUnbind + """)("username", username0)])})
+        }
+      """
+    )
+  
+    // @LINE:21
+    def processForm: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.Login.processForm",
+      """
+        function(uname0,pass1) {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "showProfile" + _qS([(""" + implicitly[QueryStringBindable[String]].javascriptUnbind + """)("uname", uname0), (""" + implicitly[QueryStringBindable[String]].javascriptUnbind + """)("pass", pass1)])})
         }
       """
     )
@@ -190,28 +160,8 @@ package controllers.javascript {
     def addPerson: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Signup.addPerson",
       """
-        function() {
-          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "addPeople"})
-        }
-      """
-    )
-  
-  }
-
-  // @LINE:27
-  class ReverseJavascriptRoute(_prefix: => String) {
-
-    def _defaultPrefix: String = {
-      if (_prefix.endsWith("/")) "" else "/"
-    }
-
-  
-    // @LINE:27
-    def javascriptRoutes: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.JavascriptRoute.javascriptRoutes",
-      """
-        function() {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "javascriptRoutes"})
+        function(fname0,mname1,lname2,uname3,pass4,repass5,mobile6,gender7,age8,hobbies9) {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "addPeople" + _qS([(""" + implicitly[QueryStringBindable[String]].javascriptUnbind + """)("fname", fname0), (""" + implicitly[QueryStringBindable[String]].javascriptUnbind + """)("mname", mname1), (""" + implicitly[QueryStringBindable[String]].javascriptUnbind + """)("lname", lname2), (""" + implicitly[QueryStringBindable[String]].javascriptUnbind + """)("uname", uname3), (""" + implicitly[QueryStringBindable[String]].javascriptUnbind + """)("pass", pass4), (""" + implicitly[QueryStringBindable[String]].javascriptUnbind + """)("repass", repass5), (""" + implicitly[QueryStringBindable[String]].javascriptUnbind + """)("mobile", mobile6), (""" + implicitly[QueryStringBindable[String]].javascriptUnbind + """)("gender", gender7), (""" + implicitly[QueryStringBindable[String]].javascriptUnbind + """)("age", age8), (""" + implicitly[QueryStringBindable[String]].javascriptUnbind + """)("hobbies", hobbies9)])})
         }
       """
     )

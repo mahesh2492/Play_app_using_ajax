@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/knoldus/Desktop/fuck/conf/routes
-// @DATE:Sat Mar 11 10:21:29 IST 2017
+// @DATE:Sat Mar 11 18:00:05 IST 2017
 
 import play.api.mvc.{ QueryStringBindable, PathBindable, Call, JavascriptLiteral }
 import play.core.routing.{ HandlerDef, ReverseRouteContext, queryString, dynamicString }
@@ -23,27 +23,6 @@ package controllers {
     def versioned(file:Asset): Call = {
       implicit val _rrc = new ReverseRouteContext(Map(("path", "/public")))
       Call("GET", _prefix + { _defaultPrefix } + "assets/" + implicitly[PathBindable[Asset]].unbind("file", file))
-    }
-  
-  }
-
-  // @LINE:29
-  class ReverseAjaxController(_prefix: => String) {
-    def _defaultPrefix: String = {
-      if (_prefix.endsWith("/")) "" else "/"
-    }
-
-  
-    // @LINE:31
-    def ajaxCall1(): Call = {
-      import ReverseRouteContext.empty
-      Call("GET", _prefix + { _defaultPrefix } + "signup")
-    }
-  
-    // @LINE:29
-    def ajaxCall(): Call = {
-      import ReverseRouteContext.empty
-      Call("GET", _prefix + { _defaultPrefix } + "signin")
     }
   
   }
@@ -76,16 +55,16 @@ package controllers {
       Call("GET", _prefix + { _defaultPrefix } + "login.scala.html")
     }
   
-    // @LINE:21
-    def processForm(): Call = {
-      import ReverseRouteContext.empty
-      Call("POST", _prefix + { _defaultPrefix } + "showProfile")
-    }
-  
     // @LINE:23
     def showProfile(username:String): Call = {
       import ReverseRouteContext.empty
       Call("GET", _prefix + { _defaultPrefix } + "profile" + queryString(List(Some(implicitly[QueryStringBindable[String]].unbind("username", username)))))
+    }
+  
+    // @LINE:21
+    def processForm(uname:String, pass:String): Call = {
+      import ReverseRouteContext.empty
+      Call("POST", _prefix + { _defaultPrefix } + "showProfile" + queryString(List(Some(implicitly[QueryStringBindable[String]].unbind("uname", uname)), Some(implicitly[QueryStringBindable[String]].unbind("pass", pass)))))
     }
   
   }
@@ -142,24 +121,9 @@ package controllers {
     }
   
     // @LINE:19
-    def addPerson(): Call = {
+    def addPerson(fname:String, mname:String, lname:String, uname:String, pass:String, repass:String, mobile:String, gender:String, age:String, hobbies:String): Call = {
       import ReverseRouteContext.empty
-      Call("POST", _prefix + { _defaultPrefix } + "addPeople")
-    }
-  
-  }
-
-  // @LINE:27
-  class ReverseJavascriptRoute(_prefix: => String) {
-    def _defaultPrefix: String = {
-      if (_prefix.endsWith("/")) "" else "/"
-    }
-
-  
-    // @LINE:27
-    def javascriptRoutes(): Call = {
-      import ReverseRouteContext.empty
-      Call("GET", _prefix + { _defaultPrefix } + "javascriptRoutes")
+      Call("POST", _prefix + { _defaultPrefix } + "addPeople" + queryString(List(Some(implicitly[QueryStringBindable[String]].unbind("fname", fname)), Some(implicitly[QueryStringBindable[String]].unbind("mname", mname)), Some(implicitly[QueryStringBindable[String]].unbind("lname", lname)), Some(implicitly[QueryStringBindable[String]].unbind("uname", uname)), Some(implicitly[QueryStringBindable[String]].unbind("pass", pass)), Some(implicitly[QueryStringBindable[String]].unbind("repass", repass)), Some(implicitly[QueryStringBindable[String]].unbind("mobile", mobile)), Some(implicitly[QueryStringBindable[String]].unbind("gender", gender)), Some(implicitly[QueryStringBindable[String]].unbind("age", age)), Some(implicitly[QueryStringBindable[String]].unbind("hobbies", hobbies)))))
     }
   
   }

@@ -1,14 +1,15 @@
 package controllers
 
 import javax.inject._
-import Models.{UserSignIn, Operations}
+import Models.{User, UserSignIn, Operations}
 import play.api._
 import play.api.data.Form
 import play.api.data.Forms._
 import play.api.mvc._
+import services.CacheTrait
 
 @Singleton
-class Login @Inject() extends Controller{
+class Login @Inject()(cacheService: CacheTrait) extends Controller{
 
   val userForm: Form[UserSignIn] = Form {
     mapping(
@@ -21,37 +22,35 @@ class Login @Inject() extends Controller{
   val users = Operations.getUsers
 
   def showProfile(name:String) = Action {implicit request =>
-   val usr = users.filter(_.uname == name).head
-    Ok(views.html.userinfo(usr))
+    val data: Option[User] =cacheService.getFromCache(name)
+    data match {
+      case Some(x) => Ok(views.html.userinfo(x))
+
+    }
   }
 
 
 
-  def showForm() = Action {
-    Ok(views.html.login())
+  def showForm() = Action { implicit request =>
+    Ok(views.html.login()).flashing("a" ->"a")
   }
 
 
-  def processForm= Action{ implicit request =>
-    userForm.bindFromRequest.fold (
-      formWithErrors => {
-        Logger.info("error occurred")
-        Redirect(routes.Login.showForm()).flashing("Error Message"->"Incorrect username or password")
-      },
-      userData => {
-        Logger.info(userData.toString)
-        val flag = users.map(x => if (x.uname == userData.username && x.password == userData.password) true else false)
-        if (flag.contains(true)) {
+  def processForm(uname:String,pass:String) = Action { implicit request =>
 
-          Redirect(routes.Login.showProfile(userData.username)).withSession("currentUser" -> userData.username).flashing("msg" -> "Login Successful")
-        }
-        else {
-          Logger.info("error ")
-        Redirect(routes.Login.showForm()).flashing("msg" -> "Incorrect username or password")
-      }
+    val data = cacheService.getFromCache(uname)
 
-      }
+    val result = data.map(x =>
+
+      if (x.uname == uname && x.password == pass) true
+      else false
     )
+
+    if (result.contains(true)) {
+      Redirect(routes.Login.showProfile(uname)).withSession("currentUser" ->uname).flashing("msg" -> "Login Successful")
+    }
+    else
+      Redirect(routes.Login.showForm()).flashing("msg" -> "Incorrect username or password")
   }
 
 

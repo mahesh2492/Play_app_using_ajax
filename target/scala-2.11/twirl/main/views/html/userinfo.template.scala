@@ -14,15 +14,15 @@ import play.api.templates.PlayMagic._
 import play.api.mvc._
 import play.api.data._
 
-class userinfo extends BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with play.twirl.api.Template1[Models.User,play.twirl.api.HtmlFormat.Appendable] {
+class userinfo extends BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with play.twirl.api.Template2[Models.User,RequestHeader,play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply/*1.2*/(user:Models.User):play.twirl.api.HtmlFormat.Appendable = {
+  def apply/*1.2*/(user:Models.User)(implicit request: RequestHeader):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
 
 
-Seq[Any](format.raw/*1.20*/("""
+Seq[Any](format.raw/*1.53*/("""
 """),_display_(/*2.2*/main()/*2.8*/ {_display_(Seq[Any](format.raw/*2.10*/("""
 """),format.raw/*3.1*/("""<nav class="navbar navbar-inverse ">
     <div class="container-fluid">
@@ -39,68 +39,41 @@ Seq[Any](format.raw/*1.20*/("""
 
 <br><br>
 
-<div class="row container"  >
-    <table class="table table-bordered" style="text-align:center">
-        <div style="text-align:center">
-            <strong>
-       <h>"""),_display_(/*22.12*/user/*22.16*/.fname),format.raw/*22.22*/("""</h>
-        <h>"""),_display_(/*23.13*/user/*23.17*/.mname),format.raw/*23.23*/("""</h>
-        <h>"""),_display_(/*24.13*/user/*24.17*/.lname),format.raw/*24.23*/("""</h>
-            </strong>
-        </div>
-        <tbody>
-        <tr class="success">
-            <td>User Name</td>
-            <td>"""),_display_(/*30.18*/user/*30.22*/.uname),format.raw/*30.28*/("""</td>
-        </tr >
-        <tr class="danger">
-            <td>First Name</td>
-            <td>"""),_display_(/*34.18*/user/*34.22*/.fname),format.raw/*34.28*/("""</td>
-        </tr>
-        <tr class="info">
-            <td>Middle Name</td>
-            <td>"""),_display_(/*38.18*/user/*38.22*/.mname),format.raw/*38.28*/("""</td>
-        </tr>
-        <tr>
-            <td>Last Name</td>
-            <td>"""),_display_(/*42.18*/user/*42.22*/.lname),format.raw/*42.28*/("""</td>
-        </tr>
-
-        <tr class="warning">
-            <td>Mobile</td>
-            <td>"""),_display_(/*47.18*/user/*47.22*/.mobile),format.raw/*47.29*/("""</td>
-        </tr>
-        <tr>
-            <td>Gender</td>
-            <td>"""),_display_(/*51.18*/user/*51.22*/.gender),format.raw/*51.29*/("""</td>
-        </tr>
-        <tr class="active">
-            <td>Age</td>
-            <td>"""),_display_(/*55.18*/user/*55.22*/.age),format.raw/*55.26*/("""</td>
-        </tr>
-        <tr class="success">
-            <td>Gender</td>
-            <td>"""),_display_(/*59.18*/user/*59.22*/.gender),format.raw/*59.29*/("""</td>
-        </tr>
-
-        <tr class="info">
-            <td>Hobbies</td>
-            <td>"""),_display_(/*64.18*/user/*64.22*/.hobbies),format.raw/*64.30*/("""</td>
-        </tr>
+<div class="row text-center" style="margin-top:20px; border-radius:5px;">
+    <div class="col-md-3" ></div>
+    <div class="col-md-6 "style=" background-color:#CD5C5C;border-radius:10px;" ><h2>"""),_display_(/*20.87*/user/*20.91*/.fname),format.raw/*20.97*/(""" """),_display_(/*20.99*/user/*20.103*/.mname),format.raw/*20.109*/(""" """),_display_(/*20.111*/user/*20.115*/.lname),format.raw/*20.121*/(""" """),format.raw/*20.122*/("""</h2></div>
+    <div class="col-md-3" ></div>
+</div>
 
 
-        </tbody>
-    </table>
-
+<div class="row text-center" style="margin-top:20px;">
+    <div class="col-md-4" ></div>
+    <div class="col-md-4 " style ="background-color:#808080; border-radius:10px;"><h3>"""),_display_(/*27.88*/user/*27.92*/.uname),format.raw/*27.98*/("""</h3></div>
+    <div class="col-md-4" ></div>
+</div>
+<div class="row text-center" style="margin-top:20px;">
+    <div class="col-md-4" ></div>
+    <div class="col-md-4 "style ="background-color:#F08080; border-radius:10px;" ><h3>"""),_display_(/*32.88*/user/*32.92*/.mobile),format.raw/*32.99*/("""</h3></div>
+    <div class="col-md-4" ></div>
+</div>
+<div class="row text-center" style="margin-top:20px;">
+    <div class="col-md-4" ></div>
+    <div class="col-md-4" style ="background-color:#E9967A; border-radius:10px;" ><h3>"""),_display_(/*37.88*/user/*37.92*/.gender),format.raw/*37.99*/(""" """),format.raw/*37.100*/(""", """),_display_(/*37.103*/user/*37.107*/.age),format.raw/*37.111*/("""</h3></div>
+    <div class="col-md-4" ></div>
+</div>
+<div class="row text-center" style="margin-top:20px;">
+    <div class="col-md-4" ></div>
+    <div class="col-md-4 "style ="background-color:#FFA07A; border-radius:10px;" ><h3>"""),_display_(/*42.88*/user/*42.92*/.hobbies),format.raw/*42.100*/("""</h3></div>
+    <div class="col-md-4" ></div>
 </div>
 """)))}))
       }
     }
   }
 
-  def render(user:Models.User): play.twirl.api.HtmlFormat.Appendable = apply(user)
+  def render(user:Models.User,request:RequestHeader): play.twirl.api.HtmlFormat.Appendable = apply(user)(request)
 
-  def f:((Models.User) => play.twirl.api.HtmlFormat.Appendable) = (user) => apply(user)
+  def f:((Models.User) => (RequestHeader) => play.twirl.api.HtmlFormat.Appendable) = (user) => (request) => apply(user)(request)
 
   def ref: this.type = this
 
@@ -113,11 +86,11 @@ Seq[Any](format.raw/*1.20*/("""
 object userinfo extends userinfo_Scope0.userinfo
               /*
                   -- GENERATED --
-                  DATE: Sat Mar 11 10:03:02 IST 2017
+                  DATE: Sat Mar 11 20:13:08 IST 2017
                   SOURCE: /home/knoldus/Desktop/fuck/app/views/userinfo.scala.html
-                  HASH: daf2206d79d1772ca445c3e7115cc9bd9c620d21
-                  MATRIX: 538->1|651->19|678->21|691->27|730->29|757->30|997->243|1012->249|1054->270|1400->589|1413->593|1440->599|1484->616|1497->620|1524->626|1568->643|1581->647|1608->653|1770->788|1783->792|1810->798|1935->896|1948->900|1975->906|2098->1002|2111->1006|2138->1012|2246->1093|2259->1097|2286->1103|2408->1198|2421->1202|2449->1209|2554->1287|2567->1291|2595->1298|2712->1388|2725->1392|2750->1396|2871->1490|2884->1494|2912->1501|3032->1594|3045->1598|3074->1606
-                  LINES: 20->1|25->1|26->2|26->2|26->2|27->3|34->10|34->10|34->10|46->22|46->22|46->22|47->23|47->23|47->23|48->24|48->24|48->24|54->30|54->30|54->30|58->34|58->34|58->34|62->38|62->38|62->38|66->42|66->42|66->42|71->47|71->47|71->47|75->51|75->51|75->51|79->55|79->55|79->55|83->59|83->59|83->59|88->64|88->64|88->64
+                  HASH: 4caa2471026e3213152342a84cf2d8080966b90c
+                  MATRIX: 552->1|698->52|725->54|738->60|777->62|804->63|1044->276|1059->282|1101->303|1472->647|1485->651|1512->657|1541->659|1555->663|1583->669|1613->671|1627->675|1655->681|1685->682|1943->913|1956->917|1983->923|2239->1152|2252->1156|2280->1163|2536->1392|2549->1396|2577->1403|2607->1404|2638->1407|2652->1411|2678->1415|2934->1644|2947->1648|2977->1656
+                  LINES: 20->1|25->1|26->2|26->2|26->2|27->3|34->10|34->10|34->10|44->20|44->20|44->20|44->20|44->20|44->20|44->20|44->20|44->20|44->20|51->27|51->27|51->27|56->32|56->32|56->32|61->37|61->37|61->37|61->37|61->37|61->37|61->37|66->42|66->42|66->42
                   -- GENERATED --
               */
           
